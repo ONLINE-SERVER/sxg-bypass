@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-REPO_URL="https://raw.githubusercontent.com/ONLINE-SERVER/sxg-bypass/main"
+REPO_URL="https://raw.githubusercontent.com/ONLINE-SERVER/sxg-bypass/refs/heads/main/SXG_BYPASS.py"
 WORKDIR="$HOME/.sxg_bypass"
 
 mkdir -p "$WORKDIR"
