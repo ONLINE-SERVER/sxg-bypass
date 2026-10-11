@@ -88,7 +88,24 @@ def clr():
 # ============================================================
 # FIXED WORKSPACE
 # ============================================================
-WORKSPACE = Path("/storage/emulated/0/SXGBYPASS")
+def _get_workspace():
+    candidates = [
+        Path("/storage/emulated/0/SXGBYPASS"),
+        Path("/sdcard/SXGBYPASS"),
+        Path.home() / "SXGBYPASS",
+    ]
+    for p in candidates:
+        try:
+            p.mkdir(parents=True, exist_ok=True)
+            test = p / ".write_test"
+            test.write_text("ok")
+            test.unlink()
+            return p
+        except Exception:
+            continue
+    return Path.home() / "SXGBYPASS"
+
+WORKSPACE = _get_workspace()
 
 
 # ============================================================
